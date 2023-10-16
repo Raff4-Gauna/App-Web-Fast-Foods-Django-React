@@ -1,10 +1,21 @@
 from django.contrib import admin
 from .models import RegisterBusiness
 
+@admin.register(RegisterBusiness)
 class RegisterBusinessAdmin(admin.ModelAdmin):
-    list_display = ('name_local', 'type_busine', 'contact_methods', 'phone_local', 'adress_business', 'owner', 'asset')
-    list_filter = ('type_busine', 'asset')
-    search_fields = ('name_local', 'owner__email')
+    list_display = ['name', 'owner', 'verified', 'registration_date']
+    list_filter = ['verified', 'registration_date']
+    search_fields = ['name', 'owner__email']
     list_per_page = 20
 
-admin.site.register(RegisterBusiness, RegisterBusinessAdmin)
+    fieldsets = (
+        ('Business Information', {
+            'fields': ('name', 'description', 'open_days', 'opening_time', 'closing_time', 'location', 'phone_number', 'images')
+        }),
+        ('Ownership', {
+            'fields': ('owner', 'verified')
+        }),
+        ('Date Information', {
+            'fields': ('registration_date',)
+        }),
+    )

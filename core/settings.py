@@ -48,6 +48,10 @@ DJANGO_APPS = [
 PROJECT_APPS = [
     "apps.user",
     "apps.register_business",
+    "apps.category",
+    "apps.dish",
+    "apps.food_combo",
+    "apps.food_promotion",
     "apps.user_profile",
 ]
 
