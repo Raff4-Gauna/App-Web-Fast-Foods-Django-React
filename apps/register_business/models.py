@@ -3,12 +3,12 @@ from django.utils import timezone
 # from apps.user.models import UserAccount
 
 class RegisterBusiness(models.Model):
-    name =          models.CharField(max_length=255, unique=True)
+    name =          models.CharField(max_length=200, unique=True)
     description =   models.TextField(blank=True, null=True)
-    open_days =     models.CharField(max_length=7)
+    open_days =     models.CharField(max_length=15)
     opening_time =  models.TimeField()
     closing_time =  models.TimeField()
-    location =      models.CharField(max_length=255)
+    location =      models.CharField(max_length=200)
     phone_number =  models.CharField(max_length=15, unique=True)
 
     images =        models.ImageField(upload_to='photos/%Y/%m/', blank=True, null=True)

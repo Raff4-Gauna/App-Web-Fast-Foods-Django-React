@@ -58,16 +58,16 @@ PROJECT_APPS = [
 THIRD_PARTY_APPS = [
     "corsheaders",
     "rest_framework",
-    "rest_framework_api",
     "djoser",
     "social_django",
     "rest_framework_simplejwt",
     "rest_framework_simplejwt.token_blacklist",
-    "channels",
-    "storages",
     "ckeditor",
     "ckeditor_uploader",
-    "django_bunny_storage",
+    # "rest_framework_api",
+    # "channels",
+    # "storages",
+    # "django_bunny_storage",
 ]
 
 CKEDITOR_CONFIGS = {"default": {"toolbar": "full", "autoParagraph": False}}
