@@ -2,18 +2,22 @@ from django.db import models
 from django.utils import timezone
 # from apps.user.models import UserAccount
 
+
+def blog_thumbnail_directory(instance, filename):
+    return 'business/{0}/{1}'.format(instance.title, filename)
+
+
 class RegisterBusiness(models.Model):
-    name =          models.CharField(max_length=200, unique=True)
-    description =   models.TextField(blank=True, null=True)
-    open_days =     models.CharField(max_length=15)
-    opening_time =  models.TimeField()
-    closing_time =  models.TimeField()
-    location =      models.CharField(max_length=200)
-    phone_number =  models.CharField(max_length=15, unique=True)
+    name =                  models.CharField(max_length=200, unique=True, help_text="Nombre del negocio de comida")
+    description =           models.TextField(blank=True, null=True, help_text="Una breve descripción del negocio")
+    location =              models.CharField(max_length=255, help_text="Dirección del negocio")
+    phone_number =          models.CharField(max_length=15, unique=True, help_text="Número de contacto del negocio")
+    email_business =        models.EmailField(help_text="Correo electrónico de contacto del negocio")
+    attention_schedule =    models.CharField(max_length=100, help_text="Horario de atención del negocio")
+    # images =                models.ImageField(upload_to='photos/%Y/%m/', blank=True, null=True, help_text="Foto principal del negocio")
+    images =                models.ImageField(upload_to=blog_thumbnail_directory, max_length=500, blank=True, null=True, help_text="Foto principal del negocio")
 
-    images =        models.ImageField(upload_to='photos/%Y/%m/', blank=True, null=True)
-
-    owner =         models.OneToOneField('user.UserAccount', on_delete=models.CASCADE, related_name='business', null=True, blank=True)
+    # owner =         models.OneToOneField('user.UserAccount', on_delete=models.CASCADE, related_name='business', null=True, blank=True)
 
 
     verified =      models.BooleanField(default=False)

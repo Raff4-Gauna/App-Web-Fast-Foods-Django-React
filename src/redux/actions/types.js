@@ -50,10 +50,7 @@ export const GET_EXPLORE_FAIL = 'GET_EXPLORE_FAIL';
 
 //-----------------------------------------------------------------------------
 
-// Business Actions
-export const REGISTER_BUSINESS_REQUEST = 'REGISTER_BUSINESS_REQUEST';
-export const REGISTER_BUSINESS_SUCCESS = 'REGISTER_BUSINESS_SUCCESS';
-export const REGISTER_BUSINESS_FAIL = 'REGISTER_BUSINESS_FAIL';
+
 
 //-----------------------------------------------------------------------------
 

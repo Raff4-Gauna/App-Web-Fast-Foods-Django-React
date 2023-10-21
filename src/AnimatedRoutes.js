@@ -26,6 +26,7 @@ import Explore from 'containers/pages/explore/Explore';
 
 import RegisterBusiness from 'containers/pages/registerBusiness/RegisterBusines';
 
+
 function AnimatedRoutes(){
   const location = useLocation()
 
@@ -43,7 +44,9 @@ function AnimatedRoutes(){
                   <Route path="/Contactos" element={<Contact/>}/>
                   {/* <Route path="/Create" component={<Publish_Articles/>} /> */}
 
- 
+                {/* solo usuarios autenticados */}
+
+                
                   <Route path="/Negocio" element={<RegisterBusiness />} />
 
 

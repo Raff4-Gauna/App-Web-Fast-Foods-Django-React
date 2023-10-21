@@ -3,7 +3,7 @@ import articles from './articles';
 import categories from './categories';
 import Auth from './auth';
 import Alert from './alerts';
-import registerBusinessReducer from './registerBusinessReduc';
+import registerBusinessReducer from './registerBusinessRed/registerBusinessReduc';
 
 
 export default combineReducers({
