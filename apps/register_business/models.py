@@ -4,7 +4,7 @@ from django.utils import timezone
 
 
 def blog_thumbnail_directory(instance, filename):
-    return 'business/{0}/{1}'.format(instance.title, filename)
+    return 'business/{0}/{1}'.format(instance.name, filename)
 
 
 class RegisterBusiness(models.Model):

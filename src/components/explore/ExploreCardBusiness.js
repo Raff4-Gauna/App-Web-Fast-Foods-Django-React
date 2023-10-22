@@ -37,7 +37,7 @@
 
 import { useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
-import { get_explore } from "redux/actions/exploreBusiness";
+// import { get_explore } from "redux/actions/exploreBusiness";
 import ExploreCard from "./ExploreCard";
 import LoadingCard from "components/loaders/LoadingCard";
 
@@ -47,7 +47,7 @@ function ExploreCardBusiness() {
 
   useEffect(() => {
     // Cuando el componente se monta, llamamos a la acción para obtener la lista de negocios.
-    dispatch(get_explore());
+    // dispatch(get_explore());
   }, [dispatch]);
 
   return (

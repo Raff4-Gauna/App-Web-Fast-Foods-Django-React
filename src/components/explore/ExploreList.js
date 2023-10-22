@@ -1,19 +1,19 @@
 import LoadingCard from "components/loaders/LoadingCard";
 import { useEffect } from "react";
 import { connect } from "react-redux";
-import { get_articles_list, get_articles_list_page } from "redux/actions/articles";
+// import { get_articles_list, get_articles_list_page } from "redux/actions/articles";
 import ExploreCard from "./ExploreCard";
 import SmallSetPagination from "components/pagination/SmallSetPagination";
 
 function ExploreList({
     articles_list,
-    get_articles_list,
-    get_articles_list_page,
-    count
+    // get_articles_list,
+    // get_articles_list_page,
+    // count
 }){
 
     useEffect(()=>{
-        get_articles_list()
+        // get_articles_list()
     },[])
 
     return(
@@ -32,8 +32,9 @@ function ExploreList({
                                         <ExploreCard/>
                                     ))
                                 }
+                                
                             </div>
-                            <SmallSetPagination get_articles_list_page={get_articles_list_page} articles_list={articles_list} count={count}/>
+                            {/* <SmallSetPagination get_articles_list_page={get_articles_list_page} articles_list={articles_list} count={count}/> */}
                         </div>
                 </div>
                 
@@ -48,11 +49,11 @@ function ExploreList({
 }
 
 const mapStateToProps = state =>({
-    articles_list: state.articles.articles_list,
-    count: state.articles.count
+    // articles_list: state.articles.articles_list,
+    // count: state.articles.count
 })
 
 export default connect(mapStateToProps,{
-    get_articles_list,
-    get_articles_list_page
+    // get_articles_list,
+    // get_articles_list_page
 })(ExploreList)

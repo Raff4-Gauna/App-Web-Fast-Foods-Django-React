@@ -19,7 +19,6 @@ class UserCreateSerializer(UserCreateSerializer):
             'is_staff',
             'verified',
             'role',
-            'business',
             'date_joined',
             'updated_at',
         )
