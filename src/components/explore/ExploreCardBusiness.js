@@ -35,41 +35,94 @@
 //   export default connect(null, { get_explore })(ExploreCardBusiness);
 
 
-import { useEffect } from "react";
-import { useDispatch, useSelector } from 'react-redux';
-// import { get_explore } from "redux/actions/exploreBusiness";
-import ExploreCard from "./ExploreCard";
+// import { useEffect } from "react";
+// import { useDispatch, useSelector } from 'react-redux';
+// // import { get_explore } from "redux/actions/exploreBusiness";
+// import ExploreCard from "./ExploreCard";
+// import LoadingCard from "components/loaders/LoadingCard";
+
+// function ExploreCardBusiness() {
+//   const dispatch = useDispatch();
+//   const exploreData = useSelector((state) => state.explore);
+
+//   useEffect(() => {
+//     // Cuando el componente se monta, llamamos a la acción para obtener la lista de negocios.
+//     // dispatch(get_explore());
+//   }, [dispatch]);
+
+//   return (
+//     <div>
+//       {exploreData && exploreData.results ? (
+//         <div className="relative bg-gray-50 pb-8 px-4 sm:px-6 lg:pb-12 lg:px-8">
+//           <div className="absolute inset-0">
+//             <div className="bg-white h-1/3 sm:h-2/3" />
+//           </div>
+//           <div className="relative max-w-7xl mx-auto">
+//             <div className="mt-12 max-w-lg mx-auto grid gap-5 lg:grid-cols-3 lg:max-w-none">
+//               {exploreData.results.map((business) => (
+//                 <ExploreCard key={business.id} data={business} />
+//               ))}
+//             </div>
+//           </div>
+//         </div>
+//       ) : (
+//         <LoadingCard />
+//       )}
+//     </div>
+//   );
+// }
+
+// export default ExploreCardBusiness;
+
+
 import LoadingCard from "components/loaders/LoadingCard";
+// import SmallSetPagination from "components/paginacion/SmallSetPagination";
+import { useEffect } from "react";
+import { connect } from "react-redux";
 
-function ExploreCardBusiness() {
-  const dispatch = useDispatch();
-  const exploreData = useSelector((state) => state.explore);
-
-  useEffect(() => {
-    // Cuando el componente se monta, llamamos a la acción para obtener la lista de negocios.
-    // dispatch(get_explore());
-  }, [dispatch]);
-
-  return (
-    <div>
-      {exploreData && exploreData.results ? (
-        <div className="relative bg-gray-50 pb-8 px-4 sm:px-6 lg:pb-12 lg:px-8">
-          <div className="absolute inset-0">
-            <div className="bg-white h-1/3 sm:h-2/3" />
-          </div>
-          <div className="relative max-w-7xl mx-auto">
-            <div className="mt-12 max-w-lg mx-auto grid gap-5 lg:grid-cols-3 lg:max-w-none">
-              {exploreData.results.map((business) => (
-                <ExploreCard key={business.id} data={business} />
-              ))}
-            </div>
-          </div>
+function RegisterBusinessList({
+    businesses,
+    count
+}){
+    
+    return (
+        <div>
+            {
+                businesses ?
+                <>
+                <div className="relative bg-gray-50 pb-8 px-4 sm:px-6 lg:pb-12 lg:px-8">
+                    <div className="absolute inset-0">
+                        <div className="bg-white h-1/3 sm:h-2/3" />
+                    </div>
+                    <div className="relative max-w-7xl mx-auto">
+                        
+                    <div className="mt-12 max-w-lg mx-auto grid gap-5 lg:grid-cols-3 lg:max-w-none">
+                            {businesses.map(business => (
+                                <div key={business.name}>
+                                    {/* Render the business information here */}
+                                    <h2>{business.name}</h2>
+                                    <p>{business.location}</p>
+                                    {/* Add more details as needed */}
+                                </div>
+                            ))}
+                        </div>
+                        {/* <SmallSetPagination 
+                            businesses={businesses} 
+                            count={count}
+                        /> */}
+                    </div>
+                </div>
+                </>
+                :
+                <LoadingCard />
+            }
         </div>
-      ) : (
-        <LoadingCard />
-      )}
-    </div>
-  );
+    );
 }
 
-export default ExploreCardBusiness;
+const mapStateToProps = state => ({
+    count: state.businesses.count,
+    businesses: state.businesses.businesses
+});
+
+export default connect(mapStateToProps, {})(RegisterBusinessList);

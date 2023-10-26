@@ -25,7 +25,7 @@ import Terms from 'components/terms/Terms';
 import Explore from 'containers/pages/explore/Explore';
 
 import RegisterBusiness from 'containers/pages/registerBusiness/RegisterBusines';
-
+// import RegisterBusinessDetail from 'components/registerBusiness/RegisterBusinessDetail';
 
 function AnimatedRoutes(){
   const location = useLocation()
@@ -40,6 +40,8 @@ function AnimatedRoutes(){
                   {/* Home Display */}
                   <Route path="/" element={<Home/>}/>
                   <Route path="/Explorar" element={<Explore/>}/>
+                  {/* <Route path="/business/:pk" element={<RegisterBusinessDetail />} /> */}
+                  {/* <Route path="/business/:slug" element={<RegisterBusinessDetail />} /> */}
                   <Route path="/Nosotros" element={<About/>}/>
                   <Route path="/Contactos" element={<Contact/>}/>
                   {/* <Route path="/Create" component={<Publish_Articles/>} /> */}

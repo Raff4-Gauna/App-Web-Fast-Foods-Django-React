@@ -97,7 +97,7 @@ function RegisterBusiness({ setAlert }) {
   
         try {
           const res = await axios.post(
-            `${process.env.REACT_APP_API_URL}/api/Business/create`,
+            `${process.env.REACT_APP_API_URL}/api/business/create`,
             body,
             config
           );

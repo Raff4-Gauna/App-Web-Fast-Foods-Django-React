@@ -45,3 +45,6 @@ uvicorn==0.20.0
 LWE4==0.0.0.2
 
 django-bunny-storage==0.1.2
+
+channels-redis==4.1.0
+

@@ -9,13 +9,20 @@ class BusinessSerializer(serializers.ModelSerializer):
 
 
 class BusinessListSerializer(serializers.ModelSerializer):
+    image_url = serializers.SerializerMethodField()
     class Meta:
         model = RegisterBusiness
         fields = [
                     'name',
                     'location',
+                    'image_url',
                 ]
-                    
+        
+    def get_image_url(self, obj):
+        if obj.images:
+            return self.context['request'].build_absolute_uri(obj.images.url)
+        return None   
+                
                 
 class CreateRegisterBusinessSerializer(serializers.ModelSerializer):
     class Meta:

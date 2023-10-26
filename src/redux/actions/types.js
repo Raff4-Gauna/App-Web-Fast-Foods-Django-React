@@ -53,7 +53,9 @@ export const GET_EXPLORE_FAIL = 'GET_EXPLORE_FAIL';
 export const GET_BUSINESS_LIST_SUCCESS = 'GET_BUSINESS_LIST_SUCCESS';
 export const GET_BUSINESS_LIST_FAIL = 'GET_BUSINESS_LIST_FAIL';
 
-
+// Busines Get
+export const GET_BUSINESS_SUCCESS = 'GET_BUSINESS_SUCCESS';
+export const GET_BUSINESS_FAIL = 'GET_BUSINESS_FAIL';
 
 //-----------------------------------------------------------------------------
 
@@ -61,6 +63,9 @@ export const GET_BUSINESS_LIST_FAIL = 'GET_BUSINESS_LIST_FAIL';
 export const SET_LOADING = "SET_LOADING";
 
 
+// Business Actions Register
+export const GET_REGISTER_BUSINESS_SUCCESS = 'GET_REGISTER_BUSINESS_SUCCESS';
+export const GET_REGISTER_BUSINESS_FAIL = 'GET_REGISTER_BUSINESS_FAIL';
 
 
 
