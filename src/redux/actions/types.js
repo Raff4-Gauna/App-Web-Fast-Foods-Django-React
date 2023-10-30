@@ -57,6 +57,10 @@ export const GET_BUSINESS_LIST_FAIL = 'GET_BUSINESS_LIST_FAIL';
 export const GET_BUSINESS_SUCCESS = 'GET_BUSINESS_SUCCESS';
 export const GET_BUSINESS_FAIL = 'GET_BUSINESS_FAIL';
 
+
+export const GET_BLOG_LIST_SUCCESS = 'GET_BLOG_LIST_SUCCESS';
+export const GET_BLOG_LIST_FAIL =  'GET_BLOG_LIST_FAIL';
+
 //-----------------------------------------------------------------------------
 
 // Loading

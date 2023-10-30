@@ -14,6 +14,35 @@ from .validations import validate_opening_and_closing_time, validate_phone_numbe
 
 # #  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 
+# class RegisterBusinessCreateView(APIView):
+#     permission_classes = [IsAuthenticated, AuthorPermission]
+
+#     def post(self, request, format=None):
+#         user = self.request.user
+
+#         # Verificar si el usuario ya tiene un negocio asociado
+#         if user.business is not None:
+#             raise ValidationError("You already have a business.")
+
+#         data = request.data
+
+#         serializer = CreateRegisterBusinessSerializer(data=data)
+
+#         if serializer.is_valid():
+#             serializer.save()
+#             business = serializer.instance  # Obtener la instancia del negocio creado
+
+#             # Asignar el negocio al usuario
+#             user.business = business
+#             user.save()
+
+#             return Response({'success': 'Business created'}, status=status.HTTP_201_CREATED)
+#         else:
+#             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        
+
+
+
 class RegisterBusinessCreateView(APIView):
     permission_classes = [IsAuthenticated, AuthorPermission]
 
@@ -25,6 +54,8 @@ class RegisterBusinessCreateView(APIView):
             raise ValidationError("You already have a business.")
 
         data = request.data
+
+        data['images'] = request.FILES.get('images')
 
         serializer = CreateRegisterBusinessSerializer(data=data)
 
@@ -41,6 +72,7 @@ class RegisterBusinessCreateView(APIView):
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
         
 
+        
 
 
 class RegisterBusinessListView(APIView):

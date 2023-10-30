@@ -1,7 +1,7 @@
 import { ArrowNarrowLeftIcon, ArrowNarrowRightIcon } from '@heroicons/react/solid'
 import { useState } from 'react';
 
-function SmallSetPagination({get_articles_list_page, articles_list, count}){
+function SmallSetPagination({get_business_list_page, get_business_list, count}){
 
     const [active, setActive] = useState(1);
     const [listingsPerPage, setListingsPerPage] = useState(6);
@@ -11,7 +11,7 @@ function SmallSetPagination({get_articles_list_page, articles_list, count}){
         // window.scrollTo(0, 0);
         setCurrentPage(page);
         setActive(page);
-        get_articles_list_page(page)
+        get_business_list_page(page)
     }
 
     const previous_number = () => {
@@ -19,15 +19,15 @@ function SmallSetPagination({get_articles_list_page, articles_list, count}){
         if (currentPage !== 1) {
             setCurrentPage(currentPage-1);
             setActive(currentPage-1);
-            get_articles_list_page(currentPage-1)
+            get_business_list_page(currentPage-1)
         }
     };
 
     const next_number = () => {window.scrollTo(0, 0);
-      if (currentPage !== Math.ceil(articles_list.length/3)) {
+      if (currentPage !== Math.ceil(get_business_list.length/3)) {
           setCurrentPage(currentPage+1);
           setActive(currentPage+1);
-          get_articles_list_page(currentPage+1)
+          get_business_list_page(currentPage+1)
       }
     };
 

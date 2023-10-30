@@ -67,3 +67,34 @@ export const get_business = (slug) => async dispatch => {
   };
   
 
+export const get_business_list_page = (p) => async dispatch => {
+    const config = {
+        headers: {
+            'Accept': 'application/json'
+        }
+    };
+
+    try {
+        const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/business/list?p=${p}`, config);
+
+        if (res.status === 200) {
+            dispatch({
+                type: GET_BUSINESS_LIST_SUCCESS,
+                payload: {
+                    businesses: res.data.results.businesses,
+                    count: res.data.count,
+                    next: res.data.next,
+                    previous: res.data.previous
+                }
+            });
+        } else {
+            dispatch({
+                type: GET_BUSINESS_LIST_FAIL
+            });
+        }
+    } catch (err) {
+        dispatch({
+            type: GET_BUSINESS_LIST_FAIL
+        });
+    }
+};
