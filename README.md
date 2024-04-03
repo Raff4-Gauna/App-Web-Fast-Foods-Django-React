@@ -8,7 +8,7 @@ opciones de comida y realizar pedidos.
 ### Para el Desarrollo del Sistema utilize las siguientes Tecnologías:
 
 - Django.
-- Mysql.
+- PostgreSQL.
 - JWT.
 - Postman.
 - React.
